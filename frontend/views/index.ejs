@@ -1,0 +1,31 @@
+<a href="/add-expense"><button>Add New Expense</button></a>
+<div id="alerts"></div>
+<div class="expense-list">
+    <h2>Your Expenses</h2>
+    <div id="expenseList">
+        <% if (expenses.length > 0) { %>
+            <% expenses.forEach(exp => { %>
+                <div class="expense-item" data-id="<%= exp._id %>">
+                    <span><img src="<%= exp.category === 'Food' ? 'https://cdn-icons-png.flaticon.com/512/3571/3571506.png' : 'https://cdn-icons-png.flaticon.com/512/3094/3094856.png' %>" alt="<%= exp.category %>"><%= exp.category %>: ₹<%= exp.amount %> (<%= exp.paymentMethod %>) - <%= exp.date.toDateString() %></span>
+                    <div>
+                        <button onclick="editExpense('<%= exp._id %>')">Edit</button>
+                        <button onclick="deleteExpense('<%= exp._id %>')">Delete</button>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <p>No expenses added yet.</p>
+        <% } %>
+    </div>
+</div>
+<div class="chart-section">
+    <h2>Spending Breakdown</h2>
+    <canvas id="expenseChart" width="400" height="400"></canvas>
+</div>
+<script>
+    const initialExpenses = JSON.stringify(expenses) ;
+    window.onload = () => {
+        renderChart(initialExpenses);
+        checkBudgetAlerts(initialExpenses);
+    };
+</script>

@@ -1,0 +1,167 @@
+/* Base Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode (Default) */
+body.light {
+    background-color: #f5f6fa;
+    color: #2c3e50;
+}
+
+/* Dark Mode */
+body.dark {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #3498db;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.navbar h1 img {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+.theme-toggle {
+    background-color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+    background-color: #ecf0f1;
+}
+
+/* Expense List */
+.expense-list {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+}
+
+body.dark .expense-list {
+    background: #34495e;
+}
+
+.expense-list h2 {
+    color: #3498db;
+    margin-top: 0;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.expense-item:last-child {
+    border-bottom: none;
+}
+
+.expense-item span {
+    display: flex;
+    align-items: center;
+}
+
+.expense-item img {
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}
+
+.expense-item button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.expense-item button:first-child {
+    background-color: #2ecc71;
+}
+
+.expense-item button:hover {
+    background-color: #c0392b;
+}
+
+.expense-item button:first-child:hover {
+    background-color: #27ae60;
+}
+
+/* Chart Section */
+.chart-section {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin: 20px 0;
+}
+
+body.dark .chart-section {
+    background: #34495e;
+}
+
+.chart-section h2 {
+    color: #3498db;
+    margin-top: 0;
+}
+
+canvas {
+    max-width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 100px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .theme-toggle {
+        margin-top: 10px;
+    }
+    .expense-item {
+        flex-direction: column;
+        text-align: center;
+    }
+    .expense-item button {
+        margin: 5px 0;
+    }
+}
