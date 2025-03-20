@@ -1,20 +1,134 @@
+
+    <style>
+        
+        
+        .expense-form {
+            background: #ffffff; /* White background for the form */
+            padding: 20px; /* Padding inside the form */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            width: 400px; /* Fixed width for the form */
+            margin-left: 35%;
+            border: 2px solid #3498db; /* Border color */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Stack children vertically */
+            align-items: center;
+        }
+
+        /* Header Styles */
+        h1 {
+            text-align: center; /* Center text horizontally */
+            color: #2c3e50; /* Darker header color */
+            font-size: 28px; /* Increase font size */
+            margin-bottom: 20px; /* Space below the header */
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%; /* Full width */
+            border-collapse: collapse; /* Remove space between borders */
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px; /* Padding for table cells */
+            text-align: left; /* Align text to the left */
+            border: 1px solid #ddd; /* Light border for table cells */
+        }
+
+        th {
+            background-color: #3498db; /* Header background color */
+            color: white; /* Header text color */
+        }
+
+        /* Input and Select Styles */
+        input[type="number"],
+        select {
+            width: 100%; /* Full width for inputs and selects */
+            padding: 10px; /* Padding inside inputs */
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 5px; /* Rounded corners */
+            box-sizing: border-box; /* Include padding in width */
+            transition: border-color 0.3s; /* Smooth transition for border color */
+        }
+
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #3498db; /* Change border color on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #3498db; /* Button color */
+            color: white; /* Text color */
+            border: none; /* No border */
+            padding: 10px; /* Padding for button */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            width: 100%; /* Full width */
+            transition: background-color 0.3s; /* Smooth transition */
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Darker blue on hover */
+        }
+
+        /* Link Styles */
+        a {
+            display: block; /* Block display for the link */
+            text-align: center; /* Center text */
+            margin-top: 20px; /* Space above the link */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .expense-form {
+                width: 90%; /* Responsive width */
+            }
+        }
+        /* Add more styles as needed */
+    </style>
+
+<body>
+   
 <h1>Add New Expense</h1>
-<form id="expenseForm" class="expense-form">
-    <input type="number" id="amount" name="amount" placeholder="Amount (₹)" min="1" required>
-    <select id="category" name="category" required>
-        <option value="">Select Category</option>
-        <option value="Food">Food</option>
-        <option value="Transport">Transport</option>
-        <option value="Entertainment">Entertainment</option>
-        <option value="Shopping">Shopping</option>
-        <option value="Others">Others</option>
-    </select>
-    <select id="paymentMethod" name="paymentMethod" required>
-        <option value="">Select Payment Method</option>
-        <option value="Cash">Cash</option>
-        <option value="Card">Card</option>
-        <option value="UPI">UPI</option>
-    </select>
-    <button type="submit">Add Expense</button>
-</form>
-<a href="/"><button>Back to Dashboard</button></a>
+    <form id="expenseForm" class="expense-form">
+        <table>
+            <tr>
+                <td><label for="amount">Amount (₹):</label></td>
+                <td><input type="number" id="amount" name="amount" placeholder="Amount (₹)" min="1" required></td>
+            </tr>
+            <tr>
+                <td><label for="category">Category:</label></td>
+                <td>
+                    <select id="category" name="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Food">Food</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Entertainment">Entertainment</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="paymentMethod">Payment Method:</label></td>
+                <td>
+                    <select id="paymentMethod" name="paymentMethod" required>
+                        <option value="">Select Payment Method</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Card">Card</option>
+                        <option value="UPI">UPI</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Add Expense</button></td>
+            </tr>
+        </table>
+    </form>
+    <a href="/"><button>Back to Dashboard</button></a>
+</body>
+</html>

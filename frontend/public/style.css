@@ -1,9 +1,95 @@
 /* Base Styles */
+/* Base Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
+    font-family: 'Roboto', sans-serif; /* Font style */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    background-color: #f5f6fa; /* Light background color */
+}
+
+/* Form Container */
+.expense-form {
+    background: #fff; /* White background for the form */
+    padding: 20px; /* Padding inside the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 400px; /* Fixed width for the form */
+    border: 2px solid #3498db; /* Border color */
+}
+
+/* Header Styles */
+h1 {
+    text-align: center; /* Center text horizontally */
+    color: #3498db; /* Header color */
+    font-size: 28px; /* Increase font size */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+/* Table Styles */
+table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Remove space between borders */
+}
+
+td {
+    padding: 10px; /* Padding for table cells */
+    vertical-align: middle; /* Align content vertically */
+}
+
+label {
+    font-weight: bold; /* Bold labels */
+}
+
+/* Input and Select Styles */
+input[type="number"],
+select {
+    width: 100%; /* Full width for inputs and selects */
+    padding: 10px; /* Padding inside inputs */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width */
+    transition: border-color 0.3s; /* Smooth transition for border color */
+}
+
+input[type="number"]:focus,
+select:focus {
+    border-color: #3498db; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styles */
+button {
+    background-color: #3498db; /* Button color */
+    color: white; /* Text color */
+    border: none; /* No border */
+    padding: 10px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+    width: 100%; /* Full width */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Link Styles */
+a {
+    display: block; /* Block display for the link */
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Space above the link */
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .expense-form {
+        width: 90%; /* Responsive width */
+    }
 }
 
 /* Light Mode (Default) */
@@ -127,13 +213,13 @@ body.dark .expense-list {
 }
 
 /* Chart Section */
-.chart-section {
+/* .chart-section {
     background: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
     margin: 20px 0;
-}
+} */
 
 body.dark .chart-section {
     background: #34495e;
@@ -165,6 +251,22 @@ canvas {
     display: block;
     margin: 0 auto;
 }
+
+
+
+/* Form Container */
+.expense-form {
+    background: #fff; /* White background for the form */
+    padding: 20px; /* Padding inside the form */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    width: 400px; /* Fixed width for the form */
+    border: 2px solid #3498db; /* Border color */
+}
+
+
+
+
 
 
 

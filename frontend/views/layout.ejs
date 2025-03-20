@@ -4,21 +4,157 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Budget Tracker</title>
-    <link rel="stylesheet" href="/public/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Existing styles... */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        .logo img {
+           
+            height: 90px;
+            transition: transform 0.3s;
+
+
+        }
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 70px;
+        }
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        .nav-links li a:hover {
+            color: #f39c12;
+        }
+        .theme-toggle {
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+
+        }
+        .theme-toggle:hover {
+            background-color: #e67e22;
+            transform: scale(1.05);
+        }
+        /* New navigation bar styles */
+        .new-navbar {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+    }
+
+        
+        .new-navbar img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        .new-navbar .text {
+            font-size: 45px;
+            margin-right: auto;
+        }
+        .new-nav-links {
+            list-style: none;
+            display: flex;
+            gap: 70px;
+
+        }
+        .new-nav-links li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+
+        }
+        .new-nav-links li a:hover {
+            color: #f39c12;
+
+        }
+        section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px;
+    }
+    .heading {
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #f39c12, #e74c3c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .subtag {
+      font-size: 2rem;
+      color: grey;
+    }
+    .large-image {
+      width: 40%;
+      border-radius: 15px;
+      box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .large-image:hover {
+      transform: scale(1.05);
+    }
+    
+
+        /* Other existing styles... */
+    </style>
 </head>
 <body class="light">
-    <div class="navbar">
+    <!-- <div class="navbar">
         <h1>
-            <img src="https://cdn-icons-png.flaticon.com/512/891/891407.png" alt="Logo">
+            <img src="image/bb1.jpg" alt="Logo">
             Smart Budget Tracker
         </h1>
         <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+    </div> -->
+
+    <!-- New Navigation Bar -->
+    <div class="new-navbar">
+        <img src="image/bb1.jpg" alt="logo">
+        <span class="text">Budget Buddy</span>
+        <ul class="new-nav-links">
+            <li><a href="#">EXPENDITURE</a></li>
+            <li><a href="#">TRANSACTION</a></li>
+            <li><a href="#">AI BUDGET SMARTER</a></li>
+            <li><a href="#">ABOUT US</a></li>
+        </ul>
+        <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
     </div>
+    <section>
+        <div>
+          <h1 class="heading">AI-Powered Smart Budget & Expense Tracker for Students</h1>
+          <h3 class="subtag">"From Pocket Money to Smart Money!"</h3>
+        </div>
+        <img class="large-image" src="image/bb6.png" alt="rightimage">
+      </section>
+    
+    
+
     <div class="container">
         <% if (typeof body === 'undefined') { %>
-            <!-- Sample Content -->
             <p>Welcome to the Smart Budget Tracker! This is a sample page with functional buttons.</p>
             
             <div class="expense-list">
@@ -32,7 +168,8 @@
                 <h2>Sample Spending Breakdown</h2>
                 <canvas id="expenseChart" width="400" height="400"></canvas>
             </div>
-
+            <div class="add-expense-container">
+              
             <script>
                 // Sample data to initialize
                 const sampleExpenses = [
@@ -99,26 +236,6 @@
                     if (response.ok) fetchSampleExpenses();
                 }
 
-                function renderChart(expenses) {
-                    const ctx = document.getElementById('expenseChart').getContext('2d');
-                    const categories = [...new Set(expenses.map(exp => exp.category))];
-                    const data = categories.map(cat => 
-                        expenses.filter(exp => exp.category === cat).reduce((sum, exp) => sum + exp.amount, 0)
-                    );
-                    new Chart(ctx, {
-                        type: 'pie',
-                        data: {
-                            labels: categories,
-                            datasets: [{
-                                data: data,
-                                backgroundColor: ['#FF6384', '#36A2EB', '#F1C40F', '#2ECC71', '#9B59B6']
-                            }]
-                        },
-                        options: { responsive: true }
-                    });
-                }
-
-                // Theme Toggle
                 function toggleTheme() {
                     const body = document.body;
                     const button = document.querySelector('.theme-toggle');
