@@ -4,14 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Budget Tracker</title>
-    <link rel="stylesheet" href="/public/style.css">
+    <!-- <link rel="stylesheet" href="/public/style.css"> -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #f9f9f9;
+    }
+    .navbar {
+      background-color: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+    }
+    .logo img {
+      height: 60px;
+      transition: transform 0.3s;
+    }
+    .logo img:hover {
+      transform: scale(1.1);
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 70px;
+    }
+    .nav-links li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover {
+      color: #f39c12;
+    }
+    .theme-toggle {
+      background-color: #f39c12;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 20px;
+      transition: background-color 0.3s;
+    }
+    .theme-toggle:hover {
+      background-color: #e67e22;
+    }
+    section {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 40px;
+    }
+    .heading {
+      font-size: 4rem;
+      font-weight: bold;
+      background: linear-gradient(to right, #f39c12, #e74c3c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+    .subtag {
+      font-size: 2rem;
+      color: grey;
+    }
+    .large-image {
+      width: 40%;
+      border-radius: 15px;
+      box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .large-image:hover {
+      transform: scale(1.05);
+    }
+    .container {
+      padding: 40px;
+    }
+    .add-expense-table {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      width: 350px;
+      z-index: 10;
+    }
+    .add-expense-table input, select, button {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .add-expense-table button {
+      background-color: #f39c12;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .add-expense-table button:hover {
+      background-color: #e67e22;
+    }
+    </style>
 </head>
 <body class="light">
     <div class="navbar">
         <h1>
-            <img src="https://cdn-icons-png.flaticon.com/512/891/891407.png" alt="Logo">
+            <img src="/frontend/public/images/bb1.jpg" alt="Logo">
             Smart Budget Tracker
         </h1>
         <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
@@ -142,6 +251,6 @@
             <%- include(body + '.ejs') %>
         <% } %>
     </div>
-    <script src="/frontend/public/script.js"></script>
+    <script src="/script.js"></script>
 </body>
 </html>
