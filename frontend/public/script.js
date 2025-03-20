@@ -50,9 +50,12 @@ function displayExpenses(expenses) {
 }
 
 async function deleteExpense(id) {
+    if (!confirm("Are you sure you want to delete this expense?")) return;
+
     const response = await fetch(`/api/expenses/${id}`, { method: 'DELETE' });
     if (response.ok) fetchExpenses();
 }
+
 
 async function editExpense(id) {
     const amount = prompt('Enter new amount', '');
@@ -68,29 +71,41 @@ async function editExpense(id) {
     }
 }
 
+let expenseChart = null; // Store chart instance
 function renderChart(expenses) {
-    const ctx = document.getElementById('expenseChart')?.getContext('2d');
-    if (!ctx) return; // Avoid errors on add-expense page
+    const ctx = document.getElementById('expenseChart').getContext('2d');
+
+    // Destroy the old chart if it exists
+    if (window.myChart) {
+        window.myChart.destroy();
+    }
+
     const categories = [...new Set(expenses.map(exp => exp.category))];
-    const data = categories.map(cat => 
+    const data = categories.map(cat =>
         expenses.filter(exp => exp.category === cat).reduce((sum, exp) => sum + exp.amount, 0)
     );
 
-    new Chart(ctx, {
+    window.myChart = new Chart(ctx, {
         type: 'pie',
         data: {
             labels: categories,
             datasets: [{
                 data: data,
-                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
-            }],
+                backgroundColor: ['#FF6384', '#36A2EB', '#F1C40F', '#2ECC71', '#9B59B6']
+            }]
         },
         options: {
-            responsive: true,
-            maintainAspectRatio: false,
+            responsive: false, // Stops auto-resizing
+            maintainAspectRatio: false, // Prevents unwanted stretching
+            animation: false, // No weird resizing animations
         }
     });
+
+    console.log("Chart updated:", data);
 }
+
+
+
 
 function checkBudgetAlerts(expenses) {
     const alertDiv = document.getElementById('alerts');
