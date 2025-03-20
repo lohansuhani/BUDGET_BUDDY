@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/db');
+const axios = require('axios');
 const expenseRoutes = require('./routes/expenseRoutes');
 const path = require('path');
 const app = express();
@@ -21,5 +22,14 @@ app.get('/add-expense', (req, res) => {
 app.get('/sample', (req, res) => {
     res.render('layout');
 });
+app.get('/api/predict-expenses', async (req, res) => {
+    try {
+      const response = await axios.post('http://localhost:5000/predict', { periods: 30 }); // Predict next 30 days
+      res.json(response.data);
+    } catch (error) {
+      console.error('Error fetching predictions:', error);
+      res.status(500).json({ message: 'Error fetching predictions' });
+    }
+  });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

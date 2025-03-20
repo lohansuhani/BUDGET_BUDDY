@@ -126,3 +126,36 @@ function checkBudgetAlerts(expenses) {
         }
     }
 }
+// Fetch predictions from the backend
+async function fetchPredictions() {
+    try {
+      const response = await fetch('/api/predict-expenses');
+      const predictions = await response.json();
+      renderPredictions(predictions);
+    } catch (error) {
+      console.error('Error fetching predictions:', error);
+    }
+  }
+  
+  // Render predictions using Chart.js
+  function renderPredictions(predictions) {
+    const ctx = document.getElementById('predictionChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: predictions.map(p => p.ds),
+        datasets: [{
+          label: 'Predicted Expenses',
+          data: predictions.map(p => p.yhat),
+          borderColor: '#36A2EB',
+          fill: false,
+        }]
+      },
+      options: { responsive: true }
+    });
+  }
+  
+  // Call fetchPredictions on page load
+  document.addEventListener('DOMContentLoaded', () => {
+    fetchPredictions();
+  });
