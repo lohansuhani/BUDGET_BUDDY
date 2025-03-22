@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Smart Budget Tracker</title>
-<<<<<<< HEAD
+
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -13,7 +13,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Roboto', sans-serif;
-            background-color: #f9f9f9;
+            background-color: #8ee6d4;
             transition: background-color 0.3s, color 0.3s;
         }
         
@@ -27,36 +27,27 @@
         .logo img:hover {
             transform: scale(1.1);
         }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 70px;
-        }
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-        .nav-links li a:hover {
-            color: #f39c12;
-        }
+        
         .theme-toggle {
-            background-color: #f39c12;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 20px;
-            transition: background-color 0.3s;
+            
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 16px;
+        background: #ffcc00;
+        color: #222;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+}
 
-        }
+
         .theme-toggle:hover {
             background-color: #e67e22;
             transform: scale(1.05);
         }
         /* New navigation bar styles */
-        .new-navbar {
+        .navbar {
             background-color: #333;
             color: white;
             display: flex;
@@ -66,42 +57,20 @@
     }
 
         
-        .new-navbar img {
-            height: 50px;
+        .navbar img {
+            height: 90px;
             margin-right: 15px;
         }
-        .new-navbar .text {
+        .navbar .text {
             font-size: 45px;
             margin-right: auto;
         }
-        .new-nav-links {
-            list-style: none;
-            display: flex;
-            gap: 70px;
-
-        }
-        .new-nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-
-        }
-        .new-nav-links li a:hover {
-            color: #f39c12;
-
-        }
-        section {
-=======
-    <!-- <link rel="stylesheet" href="/public/style.css"> -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
+       
         
-    body, html {
+     body, html {
       margin: 0;
       padding: 0;
-      font-family: 'Roboto', sans-serif;
+      font-family:'Roboto', sans-serif;
       background-color: #f9f9f9;
     }
     .navbar {
@@ -119,35 +88,36 @@
     .logo img:hover {
       transform: scale(1.1);
     }
-    .nav-links {
+    .navlinks {
       list-style: none;
       display: flex;
       gap: 70px;
     }
-    .nav-links li a {
+    .navlinks li a {
       color: white;
       text-decoration: none;
       font-size: 1.2rem;
       transition: color 0.3s;
     }
-    .nav-links li a:hover {
+    .navlinks li a:hover {
       color: #f39c12;
     }
     .theme-toggle {
       background-color: #f39c12;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 1px 8px;
       cursor: pointer;
-      border-radius: 20px;
+      border-radius: 18px;
       transition: background-color 0.3s;
+      margin-left: 40%;
+      margin-top: -6px;
     }
     .theme-toggle:hover {
       background-color: #e67e22;
     }
-    section {
->>>>>>> 26a43a58d06a9c7738dbe300d004f6512f12fa14
-      display: flex;
+     section {
+       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 40px;
@@ -161,23 +131,26 @@
       text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
     .subtag {
-      font-size: 2rem;
-      color: grey;
+    font-size: 2rem;
+    color: #333;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #686262;
+    box-shadow: 0px 0px 10px rgba(11, 6, 6, 0.1);
+    border-radius: 5px;
+    display: inline-block;
     }
     .large-image {
       width: 40%;
       border-radius: 15px;
-      box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
+      box-shadow: 10px 10px 20px rgba(23, 7, 7, 0.1);
       transition: transform 0.3s ease;
+
     }
     .large-image:hover {
       transform: scale(1.05);
     }
-<<<<<<< HEAD
-    
-
-        /* Other existing styles... */
-=======
+      /* Other existing styles... */
     .container {
       padding: 40px;
     }
@@ -210,42 +183,27 @@
     .add-expense-table button:hover {
       background-color: #e67e22;
     }
->>>>>>> 26a43a58d06a9c7738dbe300d004f6512f12fa14
-    </style>
+ </style>
 </head>
 <body class="light">
-    <!-- <div class="navbar">
-        <h1>
-<<<<<<< HEAD
-            <img src="image/bb1.jpg" alt="Logo">
-=======
-            <img src="/frontend/public/images/bb1.jpg" alt="Logo">
->>>>>>> 26a43a58d06a9c7738dbe300d004f6512f12fa14
-            Smart Budget Tracker
-        </h1>
-        <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
-    </div> -->
-
-    <!-- New Navigation Bar -->
-    <div class="new-navbar">
+    
+    <!--Navigation Bar -->
+    <div class="navbar">
         <img src="image/bb1.jpg" alt="logo">
         <span class="text">Budget Buddy</span>
-        <ul class="new-nav-links">
-            <li><a href="#">EXPENDITURE</a></li>
-            <li><a href="#">TRANSACTION</a></li>
-            <li><a href="#">AI BUDGET SMARTER</a></li>
-            <li><a href="#">ABOUT US</a></li>
-        </ul>
-        <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+        <ul class="navlinks">
+         </ul>
+      <div>  <button class="theme-toggle" onclick="toggleTheme()">Dark Mode</button>
+        </div>
     </div>
     <section>
         <div>
-          <h1 class="heading">AI-Powered Smart Budget & Expense Tracker for Students</h1>
-          <h3 class="subtag">"From Pocket Money to Smart Money!"</h3>
+          <h1 class="heading">AI-Powered Smart Investment & Expense Tracker for Students</h1>
+          <h3 class="subtag">"From Pocket Money to Smart Investment!"</h3>
         </div>
         <img class="large-image" src="image/bb6.png" alt="rightimage">
       </section>
-    
+      
     
 
     <div class="container">
@@ -268,7 +226,7 @@
             <script>
                 // Sample data to initialize
                 const sampleExpenses = [
-                    { _id: 'sample1', category: 'Food', amount: 500, paymentMethod: 'Cash', date: new Date() },
+                    { _id: 'sample1', category: 'Mutual funds', amount: 500, paymentMethod: 'Debt', date: new Date() },
                     { _id: 'sample2', category: 'Transport', amount: 200, paymentMethod: 'UPI', date: new Date() }
                 ];
 
@@ -354,6 +312,11 @@
             <%- include(body + '.ejs') %>
         <% } %>
     </div>
-    <script src="/script.js"></script>
+    <!-- Market Data Section -->
+<<div class="container">
+    <h2>Latest News</h2>
+    <ul id="news-list">API  Fetching your data...</ul>
+  </div>
+<script src="/script.js"></script>
 </body>
 </html>

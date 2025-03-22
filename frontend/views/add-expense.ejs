@@ -54,7 +54,7 @@
 
         input[type="number"]:focus,
         select:focus {
-            border-color: #3498db; /* Change border color on focus */
+            border-color: #0b0c0c; /* Change border color on focus */
             outline: none; /* Remove default outline */
         }
 
@@ -81,8 +81,8 @@
             text-align: center; /* Center text */
             margin-top: 20px; /* Space above the link */
         }
-
-        /* Responsive Design */
+                
+      /* Responsive Design */
         @media (max-width: 500px) {
             .expense-form {
                 width: 90%; /* Responsive width */
@@ -93,39 +93,40 @@
 
 <body>
    
-<h1>Add New Expense</h1>
+<h1>ADD INVESTMENT</h1>
     <form id="expenseForm" class="expense-form">
         <table>
             <tr>
-                <td><label for="amount">Amount (₹):</label></td>
+                <td><label for="amount">INVESTMENT (₹):</label></td>
                 <td><input type="number" id="amount" name="amount" placeholder="Amount (₹)" min="1" required></td>
             </tr>
             <tr>
-                <td><label for="category">Category:</label></td>
+                <td><label for="category">CATEGORY:</label></td>
                 <td>
                     <select id="category" name="category" required>
                         <option value="">Select Category</option>
-                        <option value="Food">Food</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Entertainment">Entertainment</option>
-                        <option value="Shopping">Shopping</option>
+                        <option value="Mutual funds">Mutual funds</option>
+                        <option value="Fixed deposit">Fixed deposit</option>
+                        <option value="Saving Account">Saving Account</option>
+                        <option value="SIP">SIP</option>
                         <option value="Others">Others</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td><label for="paymentMethod">Payment Method:</label></td>
+                <td><label for="paymentMethod">ASSETS</label></td>
                 <td>
                     <select id="paymentMethod" name="paymentMethod" required>
-                        <option value="">Select Payment Method</option>
-                        <option value="Cash">Cash</option>
-                        <option value="Card">Card</option>
-                        <option value="UPI">UPI</option>
+                        <option value="">select</option>
+                        <option value="Debt">Debt</option>
+                        <option value="Profit">Profit</option>
+                        <option value="Equity">Equity</option>
+                        <option value="others">others</option>
                     </select>
                 </td>
             </tr>
             <tr>
-                <td colspan="2"><button type="submit">Add Expense</button></td>
+                <td colspan="2"><button type="submit">Add Investment</button></td>
             </tr>
         </table>
     </form>

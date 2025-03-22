@@ -159,3 +159,97 @@ async function fetchPredictions() {
   document.addEventListener('DOMContentLoaded', () => {
     fetchPredictions();
   });
+  let isDarkMode = false;
+
+function toggleTheme() {
+  isDarkMode = !isDarkMode;
+  if (isDarkMode) {
+    document.body.style.background = '#333';
+    document.body.style.color = '#f2f2f2';
+    document.querySelector('.theme-toggle').style.background = '#666';
+    document.querySelector('.theme-toggle').style.color = '#fff';
+    document.querySelector('.theme-toggle').textContent = 'Light Mode';
+  } else {
+    document.body.style.background = '#f2f2f2';
+    document.body.style.color = '#333';
+    document.querySelector('.theme-toggle').style.background = '#4CAF50';
+    document.querySelector('.theme-toggle').style.color = '#fff';
+    document.querySelector('.theme-toggle').textContent = 'Dark Mode';
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("KhabriKahani Loaded!");
+
+    // Check for saved dark mode preference
+    const darkModeEnabled = localStorage.getItem("darkMode") === "enabled";
+
+    // Function to enable dark mode
+    const enableDarkMode = () => {
+        document.body.classList.add("dark-mode");
+        localStorage.setItem("darkMode", "enabled");
+        darkModeButton.innerText = "";
+    };
+
+    // Function to disable dark mode
+    const disableDarkMode = () => {
+        document.body.classList.remove("dark-mode");
+        localStorage.setItem("darkMode", "disabled");
+        darkModeButton.innerText = "";
+    };
+
+    // Create Dark Mode Toggle Button
+    const darkModeButton = document.createElement("button");
+    darkModeButton.classList.add("theme-toggle");
+    
+    if (darkModeEnabled) {
+        enableDarkMode();
+    } else {
+        disableDarkMode();
+    }
+
+    // Toggle Dark Mode on button click
+    darkModeButton.addEventListener("click", () => {
+        if (document.body.classList.contains("dark-mode")) {
+            disableDarkMode();
+        } else {
+            enableDarkMode();
+        }
+    });
+
+    // Append the button to the body
+    document.body.appendChild(darkModeButton);
+});
+
+const api_key_news = '86cbd4b262d74146a01a6d5636daa9d6';
+
+
+
+
+async function getNews() {
+  try {
+    const response = await fetch(`https://newsapi.org/v2/everything?q=stocks&sortBy=publishedAt&apiKey=${api_key_news}`);
+    const data = await response.json();
+    const newsListElement = document.getElementById('news-list');
+    newsListElement.innerHTML = '';
+    data.articles.slice(0, 10).forEach((article) => {
+      const listItem = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = article.url;
+      link.textContent = article.title;
+      link.target = '_blank';
+      listItem.appendChild(link);
+      newsListElement.appendChild(listItem);
+    });
+  } catch (error) {
+    console.error('Error fetching news:', error);
+  }
+}
+
+getMarketData();
+getNews();
+setInterval(getMarketData, 60000); // Update every 1 minute
+const express = require('express');
+const axios = require('axios');
+const app = express();
+
+
